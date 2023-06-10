@@ -14,4 +14,9 @@ O processo é repetido até que um critério de convergência seja atingido, com
 
 
 <p align="center"> <img width="353" alt="Captura de Tela 2023-06-10 às 18 09 57" src="https://github.com/vtmrg/Trabalho2-M-todo-de-Jacobi/assets/127882225/d9a914d3-2134-4a7d-bca6-1757fab0e349">
+  
+</p>
+
+<p align="center">
+  O valor de <em>Er</em> deve ser menor que 10<sup>-p</sup>, sendo <em>p</em> o número de algarismos significativos.
 </p>
