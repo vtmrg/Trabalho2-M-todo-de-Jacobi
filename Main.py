@@ -1,4 +1,5 @@
 
+
 '''main ???'''
 
 '''Leitura de três matrizes A, x e B, colocar saídas de texto'''
@@ -18,3 +19,13 @@ matriz_B = ler_matriz("B", *dim_B)
 
 matrizbb=matrizB(matriz_A)
 print(matrizbb)
+
+p = int(input("Digite o número de casas decimais (p): "))
+
+# Resolução da equação linear utilizando o método de Jacobi
+resultado = iteracao(matrizbb, matriz_x, matriz_gg, p)
+
+# Exibição dos resultados
+print("Resultado da equação linear:")
+for i in range(len(resultado)):
+    print(f"x{i+1} = {resultado[i]}")
