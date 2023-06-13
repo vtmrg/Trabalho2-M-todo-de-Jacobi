@@ -1,11 +1,8 @@
 from funcoes import iteracao, matrizB, dividir_matriz
 
 
-
-
 def log():
-
-    print('\nEscolha uma opção (0 a 2): \n0-sair \n1- Inserir as esuqcaoes da forma Ax=b e calcular x(matriz de incógnitas) a partir do método de Jacobi \n2- Inserir as esuqcaoes da forma Ax=b e calcular x(matriz de incógnitas) a partir do método de Jacobi e depois calcular o MSE do resultado obtido com o resultado do método implementado por QuantStar')
+    print('\nEscolha uma opção (0 a 2): \n0 - sair \n1 - Inserir as equações da forma Ax=b e calcular x (matriz de incógnitas) a partir do método de Jacobi \n2 - Inserir as equações da forma Ax=b e calcular x (matriz de incógnitas) a partir do método de Jacobi e depois calcular o MSE do resultado obtido com o resultado do método implementado por QuantStar')
     user = input()
 
     try:
@@ -17,10 +14,11 @@ def log():
             return 0
         else:
             print('\nEntrada inválida')
-            resposta = input('\nEscolha: 1-Voltar para o menu principal Qualquer outra tecla-Sair do Programa')
+            resposta = input('\nEscolha: 1 - Voltar para o menu principal | Qualquer outra tecla - Sair do Programa')
             if resposta == '1':
                 return log()
             else:
+                print('\nO programa foi encerrado :)')
                 return 0
 
 
@@ -30,52 +28,67 @@ def func(digito):
         print('\nO programa foi encerrado :)')
         return
 
-    elif int(usuario)==1 or int(usuario)==2:
+    elif usuario == 1 or usuario == 2:
+        if usuario == 1:
+            print('Preencha os valores A*x=B')
+            dim_A = ler_dimensao("matriz A")
+            if dim_A[1] != dim_A[0]:
+                print("As matrizes devem ter o mesmo número de linhas")
+                resposta = input('\nEscolha: 1 - Voltar para o menu principal | Qualquer outra tecla - Sair do programa')
+                if int(resposta) == 1:
+                    func(1)
+                else:
+                    print('\nO programa foi encerrado :)')
+                    return
 
-        if int(usuario) == 1:
-          print('Preencha os valores A*x=B')
-          dim_A = ler_dimensao("matriz A")
-          print(len(dim_A))
-          print(dim_A[0])
-          print(dim_A[1])
-          if (dim_A[1]) !=(dim_A[0]):
-            print("As matrizes devem ter o mesmo número de linhas")
-            resposta = input('\nEscolha: 1-Voltar para o menu principal -Sair do programa(qualquer outra tecla)')
-            if int(resposta) == 1:
-              func(1)
-            else:
-              print('\nO programa foi encerrado :)')
-              return
+            matriz_A = ler_matriz("A", *dim_A)
+            dim_B = (dim_A[1], 1)
+            matriz_B = ler_matriz("B", *dim_B)
+            p = int(input("Digite o número de casas decimais (p): "))
 
-          matriz_A = ler_matriz("A", *dim_A)
-          dim_x = (len(dim_A), 1)
-          dim_B = (len(dim_A), 1)
-          matriz_B = ler_matriz("B", *dim_B)
-          matrix=preencher_matriz_incognitas(dim_A[0])
-          matrizbb=matrizB(matriz_A)
-          matrizgg=dividir_matriz(matriz_B,matriz_A)
-          print(matrizbb)
-          print(matrizgg)
+            matriz_x = preencher_matriz_incognitas(dim_B[0])
+            resultado = iteracao(matriz_A, matriz_B, p)
 
-          p = int(input("Digite o número de casas decimais (p): "))
+            print("Resultado da equação linear:")
+            for i, valor in enumerate(resultado):
+                print(f"x{i + 1} = {valor}")
+        elif usuario == 2:
 
-    # Resolução da equação linear utilizando o método de Jacobi
-          resultado = iteracao(matrizbb, matriz_x, matriz_gg, p)
+            print('Preencha os valores A*x=B')
+            dim_A = ler_dimensao("matriz A")
+            if dim_A[1] != dim_A[0]:
+                print("As matrizes devem ter o mesmo número de linhas")
+                resposta = input('\nEscolha: 1 - Voltar para o menu principal | Qualquer outra tecla - Sair do programa')
+                if int(resposta) == 1:
+                    func(1)
+                else:
+                    print('\nO programa foi encerrado :)')
+                    return
 
-# Exibição dos resultados
-          print("Resultado da equação linear:")
-          for i in range(len(resultado)):
-              print(f"x{i+1} = {resultado[i]}")
+            matriz_A = ler_matriz("A", *dim_A)
+            dim_B = (dim_A[1], 1)
+            matriz_B = ler_matriz("B", *dim_B)
+            p = int(input("Digite o número de casas decimais (p): "))
 
+            matriz_x = preencher_matriz_incognitas(dim_B[0])
+            resultado = iteracao(matriz_A, matriz_B, p)
+            guess = np.zeros_like(matriz_B)
+            A = array([[2.0,1.0],[5.0,7.0]])
+            b = array([11.0,13.0])
+            guess = array([1.0,1.0])
 
+            sol = jacobi(A,b,N=25,x=guess)
+            print(sol)
 
-
+            print("Resultado da equação linear:")
+            for i, valor in enumerate(resultado):
+                print(f"x{i + 1} = {valor}")
 
     else:
-      print('\nEntrada inválida')
-      resposta = input('\nEscolha: 1-Voltar para o menu principal Qualquer outra tecla-Sair do Programa')
-      if int(resposta) == 1:
-        func(log())
-      else:
-        print('\nO programa foi encerrado :)')
-        return
+        print('\nEntrada inválida')
+        resposta = input('\nEscolha: 1 - Voltar para o menu principal | Qualquer outra tecla - Sair do Programa')
+        if int(resposta) == 1:
+            func(log())
+        else:
+            print('\nO programa foi encerrado :)')
+            return

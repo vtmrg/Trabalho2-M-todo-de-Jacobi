@@ -27,3 +27,20 @@ def ler_dimensao(nome):
     lin = int(input("   - quantidade de linhas: "))
     col = int(input("   - quantidade de colunas: "))
     return lin, col  # retorna uma tupla
+
+# Função pronta Jacobi
+def jacobi(A,b,N=25,x=None):
+    """Solves the equation Ax=b via the Jacobi iterative method."""
+    # Create an initial guess if needed
+    if x is None:
+        x = zeros(len(A[0]))
+
+    # Create a vector of the diagonal elements of A
+    # and subtract them from A
+    D = diag(A)
+    R = A - diagflat(D)
+
+    # Iterate for N times
+    for i in range(N):
+        x = (b - dot(R,x)) / D
+    return x
