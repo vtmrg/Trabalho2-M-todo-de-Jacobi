@@ -1,0 +1,18 @@
+def dividir_matriz(matriz_coluna, matriz_quadrada):
+    if len(matriz_coluna) != len(matriz_quadrada):
+        raise ValueError("As matrizes devem ter o mesmo número de linhas")
+
+    matriz_resultado = []
+    for i in range(len(matriz_coluna)):
+        elemento_diagonal = matriz_quadrada[i][i]
+        elemento_coluna = matriz_coluna[i][0]
+        resultado = elemento_coluna / elemento_diagonal
+        matriz_resultado.append([resultado])
+
+    return matriz_resultado
+
+matriz_coluna = [[2], [4], [6]]
+matriz_quadrada = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+resultado = dividir_matriz(matriz_coluna, matriz_quadrada)
+print(resultado)
