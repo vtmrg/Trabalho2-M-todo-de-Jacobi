@@ -1,3 +1,7 @@
+from funcoes import iteracao, matrizB, dividir_matriz
+
+
+
 
 def log():
 
