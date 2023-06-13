@@ -83,6 +83,15 @@ def func(digito):
             print("Resultado da equação linear:")
             for i, valor in enumerate(resultado):
                 print(f"x{i + 1} = {valor}")
+                
+            diferenca = numpy.subtract(numpy.transpose(sol),numpy.transpose(resultado) )
+    
+            diferenca_quadrada = numpy.square(diferenca)
+    
+    
+            erro_quadratico_medio = numpy.mean(diferenca_quadrada)
+    
+            print("Erro Quadrático Médio:", erro_quadratico_medio)
 
     else:
         print('\nEntrada inválida')
