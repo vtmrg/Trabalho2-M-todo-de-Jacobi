@@ -1,4 +1,7 @@
-from funcoes import iteracao, matrizB, dividir_matriz
+import numpy as np
+
+from funcoes import iteracao, preencher_matriz_incognitas #, matrizB, dividir_matriz
+from mymat_until import ler_matriz, ler_dimensao, jacobi
 
 
 def log():

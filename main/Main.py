@@ -1,5 +1,5 @@
 import numpy as np
-from menu.py import log
+from menu import log, func
 
 opcao = 1
 while opcao != 0:
