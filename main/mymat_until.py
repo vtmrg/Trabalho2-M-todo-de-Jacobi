@@ -1,5 +1,7 @@
 '''Funções de ler/criar matriz'''
 
+import numpy as np
+
 # cria e retorna uma matriz (linhas x colunas) com conteúdo celula (ou zero por default)
 def criar_matriz(linhas, colunas, celula=0):
     m = [0] * linhas
@@ -33,14 +35,14 @@ def jacobi(A,b,N=25,x=None):
     """Solves the equation Ax=b via the Jacobi iterative method."""
     # Create an initial guess if needed
     if x is None:
-        x = zeros(len(A[0]))
+        x = np.zeros(len(A[0]))
 
     # Create a vector of the diagonal elements of A
     # and subtract them from A
-    D = diag(A)
-    R = A - diagflat(D)
+    D = np.diag(A)
+    R = A - np.diagflat(D)
 
     # Iterate for N times
     for i in range(N):
-        x = (b - dot(R,x)) / D
+        x = (b - np.dot(R,x)) / D
     return x

@@ -76,9 +76,9 @@ def func(digito):
             matriz_x = preencher_matriz_incognitas(dim_B[0])
             resultado = iteracao(matriz_A, matriz_B, p)
             guess = np.zeros_like(matriz_B)
-            A = array([[2.0,1.0],[5.0,7.0]])
-            b = array([11.0,13.0])
-            guess = array([1.0,1.0])
+            A = np.array([[2.0,1.0],[5.0,7.0]])
+            b = np.array([11.0,13.0])
+            guess = np.array([1.0,1.0])
 
             sol = jacobi(A,b,N=25,x=guess)
             print(sol)
@@ -87,12 +87,12 @@ def func(digito):
             for i, valor in enumerate(resultado):
                 print(f"x{i + 1} = {valor}")
                 
-            diferenca = numpy.subtract(numpy.transpose(sol),numpy.transpose(resultado) )
+            diferenca = np.subtract(np.transpose(sol),np.transpose(resultado) )
     
-            diferenca_quadrada = numpy.square(diferenca)
+            diferenca_quadrada = np.square(diferenca)
     
     
-            erro_quadratico_medio = numpy.mean(diferenca_quadrada)
+            erro_quadratico_medio = np.mean(diferenca_quadrada)
     
             print("Erro Quadrático Médio:", erro_quadratico_medio)
 
