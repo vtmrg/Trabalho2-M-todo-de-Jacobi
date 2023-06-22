@@ -42,7 +42,9 @@ def iteracao(A, b, p, max_iter=1000):
 
         erro = max(abs(x[i] - x_ant[i]) for i in range(n))
 
-        if erro <= pow(10, -p):
+        if erro <= 0.2:
+            print("Numero de iteracoes:")
+            print(k)
             return x
 
         x_ant = x.copy()

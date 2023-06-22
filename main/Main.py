@@ -1,7 +1,7 @@
 import numpy as np
 from menu import log, func
 
-opcao = 1
+opcao = 
 while opcao != 0:
     opcao = log()
-    func(opcao)
+    func(opcao)2

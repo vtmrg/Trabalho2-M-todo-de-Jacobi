@@ -1,7 +1,7 @@
 import numpy as np
 
-from funcoes import iteracao, preencher_matriz_incognitas #, matrizB, dividir_matriz
-from mymat_until import ler_matriz, ler_dimensao, jacobi
+from funcoes import iteracao, preencher_matriz_incognitas, jacobi2 #, matrizB, dividir_matriz
+from mymat_until import ler_matriz, ler_dimensao
 
 
 def log():
@@ -75,12 +75,8 @@ def func(digito):
 
             matriz_x = preencher_matriz_incognitas(dim_B[0])
             resultado = iteracao(matriz_A, matriz_B, p)
-            guess = np.zeros_like(matriz_B)
-            A = np.array([[2.0,1.0],[5.0,7.0]])
-            b = np.array([11.0,13.0])
-            guess = np.array([1.0,1.0])
-
-            sol = jacobi(A,b,N=25,x=guess)
+        
+            sol= np.linalg.solve(matriz_A,matriz_B)
             print(sol)
 
             print("Resultado da equação linear:")
