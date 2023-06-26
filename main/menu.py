@@ -1,6 +1,6 @@
 import numpy as np
 
-from funcoes import iteracao, preencher_matriz_incognitas, jacobi2 #, matrizB, dividir_matriz
+from funcoes import iteracao, preencher_matriz_incognitas #, matrizB, dividir_matriz
 from mymat_until import ler_matriz, ler_dimensao
 
 

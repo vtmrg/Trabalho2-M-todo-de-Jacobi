@@ -57,9 +57,9 @@ def iteracao(A, b, p, max_iter=1000):
     return None
 
 def MSE(lista1,lista2):
-    diferenca = numpy.subtract(lista1,  lista2)
+    diferenca = np.subtract(lista1,  lista2)
 
-    diferenca_quadrada = numpy.square(diferenca)
+    diferenca_quadrada = np.square(diferenca)
 
     erro_quadratico_medio = mean(diferenca_quadrada)
 
